@@ -24,7 +24,7 @@ async def download_file(client, message):
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton(text="Check Progress", callback_data="progress_msg")]
         ]),
-        reply_to_message_id=media.message_id
+        reply_to_message_id=media.id
     )
     filetype = media.document or media.video
 
@@ -51,7 +51,7 @@ async def download_file(client, message):
 
     details = json.loads(output[0])
     buttons = []
-    DATA[f"{message.chat.id}-{msg.message_id}"] = {}
+    DATA[f"{message.chat.id}-{msg.id}"] = {}
     for stream in details["streams"]:
         mapping = stream["index"]
         stream_name = stream["codec_name"]
@@ -65,7 +65,7 @@ async def download_file(client, message):
         except:
             lang = mapping
         
-        DATA[f"{message.chat.id}-{msg.message_id}"][int(mapping)] = {
+        DATA[f"{message.chat.id}-{msg.id}"][int(mapping)] = {
             "map" : mapping,
             "name" : stream_name,
             "type" : stream_type,
@@ -74,12 +74,12 @@ async def download_file(client, message):
         }
         buttons.append([
             InlineKeyboardButton(
-                f"{stream_type.upper()} - {str(lang).upper()}", f"{stream_type}_{mapping}_{message.chat.id}-{msg.message_id}"
+                f"{stream_type.upper()} - {str(lang).upper()}", f"{stream_type}_{mapping}_{message.chat.id}-{msg.id}"
             )
         ])
 
     buttons.append([
-        InlineKeyboardButton("CANCEL",f"cancel_{mapping}_{message.chat.id}-{msg.message_id}")
+        InlineKeyboardButton("CANCEL",f"cancel_{mapping}_{message.chat.id}-{msg.id}")
     ])    
 
     await msg.edit_text(
