@@ -28,7 +28,7 @@ async def start(client, message):
                 ]
             ]
         ),
-        reply_to_=message.id
+        reply_to_message_id=message.id
     )
 
 
