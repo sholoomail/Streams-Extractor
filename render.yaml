@@ -19,4 +19,3 @@
         value: ./DOWNLOADS
       - key: AUTH_USERS 
         sync: false 
-      autoDeploy: false # optional
