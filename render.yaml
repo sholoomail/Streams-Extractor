@@ -1,5 +1,4 @@
 services:
-  # A background worker that consumes a queue
   - type: worker
     name: StreamsExtractor
     env: python
