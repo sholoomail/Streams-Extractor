@@ -1,12 +1,12 @@
-- services:
-  - type: worker
+ services:
+   type: worker
     name: StreamsExtractor
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: python main.py
     repo: https://github.com/sholoomail/Streams-Extractor.git
-   - branch: main
-   - envVars:
+    branch: main
+    envVars:
       - key: BOT_TOKEN 
         sync: false
       - key: API_ID 
