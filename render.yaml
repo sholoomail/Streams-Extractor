@@ -1,7 +1,7 @@
 services:
   # A background worker that consumes a queue
   - type: worker
-    name: Streams-Extractor
+    name: StreamsExtractor
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: python main.py
@@ -15,7 +15,7 @@ services:
       - key: API_HASH 
         sync: false
       - key: SESSION_NAME 
-        value: Streams-Extractor
+        value: StreamsExtractor
       - key: DOWNLOAD_LOCATION 
         value: ./DOWNLOADS
       - key: AUTH_USERS 
