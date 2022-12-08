@@ -12,7 +12,7 @@ class Config(object):
 
 
     # Get from my.telegram.org (or @UseTGXBot)
-    APP_ID = int(os.environ.get("APP_ID", ""))
+    APP_ID = os.environ.get("APP_ID", "")
     API_HASH = os.environ.get("API_HASH", "")
 
 
