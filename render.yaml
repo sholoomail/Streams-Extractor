@@ -1,0 +1,23 @@
+services:
+  # A background worker that consumes a queue
+  - type: worker
+    name: Streams-Extractor
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    repo: https://github.com/sholoomail/Streams-Extractor.git
+    branch: main
+    envVars:
+      - key: BOT_TOKEN 
+        sync: false
+      - key: API_ID 
+        sync: false
+      - key: API_HASH 
+        sync: false
+      - key: SESSION_NAME 
+        value: Streams-Extractor
+      - key: DOWNLOAD_LOCATION 
+        value: ./DOWNLOADS
+      - key: AUTH_USERS 
+        sync: false 
+      autoDeploy: false # optional
