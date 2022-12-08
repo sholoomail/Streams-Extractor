@@ -1,4 +1,4 @@
-services:
+- services:
   - type: worker
     name: StreamsExtractor
     env: python
